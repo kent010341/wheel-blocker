@@ -9,7 +9,7 @@ function addToWhitelist(url) {
     if (!whitelist.includes(url)) {
       whitelist.push(url);
       browser.storage.local.set({ whitelist: whitelist }, () => {
-        console.log(`Added to whitelist: ${url}`);
+        console.debug(`Added to whitelist: ${url}`);
       });
     }
   });
@@ -25,7 +25,7 @@ function removeFromWhitelist(url) {
     let whitelist = result.whitelist || [];
     whitelist = whitelist.filter(item => item !== url);
     browser.storage.local.set({ whitelist: whitelist }, () => {
-      console.log(`Removed from whitelist: ${url}`);
+      console.debug(`Removed from whitelist: ${url}`);
     });
   });
 }
